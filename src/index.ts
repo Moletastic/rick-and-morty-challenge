@@ -5,9 +5,9 @@ import {Appearance, LetterCount} from "./models"
 import {TimeChecked} from "./types"
 import {checkPromiseTime} from "./utils"
 
-function reportResults<T>(results: TimeChecked<T>, description: string): void {
+function reportResults<T>(results: TimeChecked<T>, description: string, verbose = false): void {
     console.log(description)
-    console.log(results.payload)
+    if (verbose) console.log(results.payload)
     console.log(`Tiempo transcurrido: ${results.elapsed} segundos\n`)
 }
 
@@ -20,8 +20,9 @@ async function run() {
     ]
     const results = await Promise.all(jobs)
     const [c1, c2] = results
-    reportResults(c1, "Parte 1: Contando incidencia de letra por entidad")
-    reportResults(c2, "Parte 2: Mostrando aparición y location (origin) de character por episode")
+    const verbose = Boolean(process.env.VERBOSE === "true")
+    reportResults(c1, "Parte 1: Contando incidencia de letra por entidad", verbose)
+    reportResults(c2, "Parte 2: Mostrando aparición y location (origin) de character por episode", verbose)
 }
 
 run()
