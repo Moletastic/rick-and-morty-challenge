@@ -1,6 +1,6 @@
 {
     "name": "rick-and-morty-challenge",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Rick and Morty Challenge",
     "main": "index.js",
     "scripts": {
