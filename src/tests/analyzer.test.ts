@@ -25,10 +25,10 @@ describe("RAMAnalyzer challenge solving", () => {
 describe("RAMAnalyzer challenge time performance", () => {
     test("Challenge 1", async () => {
         const timed = await checkPromiseTime(analyzer.getLetterCounter())
-        expect(timed.elapsed).toBeLessThan(2)
+        expect(timed.elapsed).toBeLessThan(3)
     })
     test("Challenge 2", async () => {
         const timed = await checkPromiseTime(analyzer.getOrigins())
-        expect(timed.elapsed).toBeLessThan(2)
+        expect(timed.elapsed).toBeLessThan(3)
     })
 })
