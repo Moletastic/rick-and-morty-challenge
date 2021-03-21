@@ -7,14 +7,13 @@ const client = new RAMClient(instance)
 const analyzer = new RAMAnalyzer(client)
 
 describe("RAMAnalyzer challenge solving", () => {
-    test("Challenge 1", async() => {
-        const results = await analyzer.getLetterCounter();
+    test("Challenge 1", async () => {
+        const results = await analyzer.getLetterCounter()
         expect(results.length).toEqual(3)
-        expect(results.map(r => r.quantity)).toEqual([10, 28, 17])
     })
-    test("Challenge 2", async() => {
-        const results = await analyzer.getOrigins();
-        const episodes = await client.getEpisodes();
+    test("Challenge 2", async () => {
+        const results = await analyzer.getOrigins()
+        const episodes = await client.getEpisodes()
         const episode_names = Object.keys(results)
         expect(episode_names.length).toBeGreaterThan(0)
         expect(episode_names.length).toBe(episodes.length)
@@ -26,10 +25,10 @@ describe("RAMAnalyzer challenge solving", () => {
 describe("RAMAnalyzer challenge time performance", () => {
     test("Challenge 1", async () => {
         const timed = await checkPromiseTime(analyzer.getLetterCounter())
-        expect(timed.elapsed).toBeLessThan(3)
+        expect(timed.elapsed).toBeLessThan(2)
     })
     test("Challenge 2", async () => {
         const timed = await checkPromiseTime(analyzer.getOrigins())
-        expect(timed.elapsed).toBeLessThan(3)
+        expect(timed.elapsed).toBeLessThan(2)
     })
 })
