@@ -1,10 +1,8 @@
-import {AxiosInstance} from "axios"
 import {ICharacter, IEpisode, ILocation, ListResponse} from "~/models"
 
 export interface IEntityClient<T> {
     entity: string
     endpoint: string
-    client: AxiosInstance
     getAll(): Promise<T[]>
     getByPage(page: number): Promise<ListResponse<T>>
     get(): Promise<ListResponse<T>>
